@@ -70,8 +70,7 @@ void send_named_bin(char name[], uint32_t data, uint8_t nibbles)
 void init_gpio(void)
 {
     /* switch to quartz 8MHz + pll 72MHz */
-    rcc_clock_setup_in_hse_8mhz_out_72mhz(); // For "blue pill"
-
+    rcc_clock_setup_pll(&rcc_hse_configs[RCC_CLOCK_HSE8_72MHZ]);
     /* periferial clock */
     rcc_periph_clock_enable(RCC_GPIOA);
     rcc_periph_clock_enable(RCC_GPIOB);
