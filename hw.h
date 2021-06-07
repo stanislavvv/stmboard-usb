@@ -123,7 +123,7 @@ static inline void delay_ticks(TickType_t ticks)
  * @brief return true if uart has received char in register
  * @return bool char received state
  */
-void init_gpio(void);
+void init_hw(void);
 
 #else
 // UNIT TESTS

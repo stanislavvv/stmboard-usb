@@ -51,6 +51,6 @@
 /**
  * initalization messages to uart
  */
-#define BOOT_VERBOSE 1
+#define BOOT_VERBOSE 0
 
-#define DEBUG 1
+#define DEBUG 0

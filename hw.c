@@ -67,7 +67,7 @@ void send_named_bin(char name[], uint32_t data, uint8_t nibbles)
 /**
  * @brief set gpio and other hardware modes
  */
-void init_gpio(void)
+void init_hw(void)
 {
     /* switch to quartz 8MHz + pll 72MHz */
     rcc_clock_setup_pll(&rcc_hse_configs[RCC_CLOCK_HSE8_72MHZ]);
