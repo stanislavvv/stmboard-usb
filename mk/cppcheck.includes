@@ -1,0 +1,7 @@
+./
+./hw
+./lcd
+./rtos
+./libopencm3/include
+./libs
+/usr/include/newlib

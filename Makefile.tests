@@ -1,0 +1,48 @@
+TGT_CFLAGS	+= -I./libs -I.
+TGT_CXXFLAGS	+= -I./libs -I.
+
+BINARY		= tests
+SRCFILES	= shell/shell.c shell/shell_cmds.c tests.c
+
+SRC_EXT = c
+
+# tool macros
+CC := gcc
+CCFLAG := -std=c99 $(TGT_CFLAGS) -DUNITTEST --coverage
+DBGFLAG := -g
+CCOBJFLAG := $(CCFLAG) -c
+LDFLAGS := -lc -lgcc --coverage
+
+# path macros
+BIN_PATH := bin
+OBJ_PATH := obj
+SRC_PATH := src
+DBG_PATH := debug
+
+# compile macros
+TARGET_NAME := tests
+TARGET := $(TARGET_NAME)
+MAIN_SRC := tests.c
+
+OBJS = $(SRCFILES:%.$(SRC_EXT)=%.o)
+DEPS = $(OBJECTS:.o=.d)
+
+# default rule
+default: all
+
+# non-phony targets
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
+	./$(TARGET)
+	@mkdir -p test_report
+	@lcov -q --capture --directory . --output-file test_report/coverage.info
+	@genhtml -q test_report/coverage.info --output-directory test_report
+
+
+%.o: %.c*
+	echo $(CCOBJFLAG)
+	$(CC) $(CCOBJFLAG) -o $(*).o -c $(*).c
+
+# phony rules
+.PHONY: all
+all: $(TARGET)

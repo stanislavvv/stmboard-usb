@@ -1,0 +1,13 @@
+*.o
+*.d
+*.bin
+*.elf
+*.map
+*.su
+*.gcda
+*.gcno
+test_report/*
+docs/html
+see_docs.sh
+see_tests.sh
+tmp/*
