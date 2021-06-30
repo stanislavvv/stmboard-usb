@@ -11,7 +11,7 @@ TGT_CXXFLAGS	+= -I./rtos -I./libs -I.
 
 BINARY		= main
 SRCFILES	= rtos/heap_4.c rtos/list.c rtos/port.c rtos/tasks.c rtos/opencm3.c rtos/queue.c
-SRCFILES	+= hw.c hw_isr.c
+SRCFILES	+= hw.c hw_isr.c hw/usb.c
 SRCFILES	+= morse.c
 SRCFILES	+= shell/shell.c shell/shell_cmds.c
 SRCFILES	+= main.c

@@ -37,13 +37,6 @@
  */
 
 /**
- * uart port
- */
-#define UART USART1
-#define UART_RCC RCC_USART1
-#define UART_SPEED 921600 // max speed on some usb-uart converters
-
-/**
  * shell will be echo input chars
  */
 #define SHELL_ECHO 1
@@ -53,4 +46,26 @@
  */
 #define BOOT_VERBOSE 0
 
+/// Debug output flag
 #define DEBUG 0
+
+/// USB flag
+#define USE_USB 0
+
+#if USE_USB==1
+  /// MCU clock speed (48MHz for USB)
+  #define CLOCK_SPEED RCC_CLOCK_HSI_48MHZ
+  
+  // Debug log and shell via USB-CDC
+#else
+  /// MCU clock speed (72MHz without USB)
+  #define CLOCK_SPEED RCC_CLOCK_HSE8_72MHZ
+
+  /// debug and shell hardware uart port without usb
+  #define UART USART1
+  #define UART_RCC RCC_USART1
+  #define UART_SPEED 921600 // max speed on some usb-uart converters
+
+#endif
+
+// EOF

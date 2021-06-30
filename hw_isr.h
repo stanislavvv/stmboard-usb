@@ -3,7 +3,7 @@
  */
 
 /**
- * @file hw_int.c
+ * @file hw_isr.c
  * @brief interrupt vector procedures (most of them for debug)
  *
  * Copyright 2020 Stanislav V. Vlasov <stanislav.v.v@gmail.com>

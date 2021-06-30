@@ -16,6 +16,7 @@
 
 #include "config.h"
 #include "hw.h"
+#include "hw/usb.h"
 
 // tasks
 #include "shell/shell.h"
@@ -57,8 +58,9 @@ int main(void)
 
     init_hw();
 
-//    xTaskCreate(shell_task, "shell", 500, NULL, 1, NULL);
-    xTaskCreate(task_hello, "hello", 100, NULL, configMAX_PRIORITIES-1, NULL);
+    //xTaskCreate(task_hello, "hello", 100, NULL, configMAX_PRIORITIES-1, NULL);
+    xTaskCreate(shell_task, "shell", 500, NULL, 1, NULL);
+    xTaskCreate(usb_task, "usb", 1000, NULL, 1, NULL);
     vTaskStartScheduler();
 
     for (;;) { };

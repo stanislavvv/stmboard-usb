@@ -9,6 +9,9 @@
  *
  */
 
+#ifndef HW_MAIN_H_
+#define HW_MAIN_H_
+
 
 #ifndef UNITTEST
 // NORMAL WORK
@@ -70,7 +73,6 @@ static inline void config_gpio_input(uint32_t gpioport, uint16_t gpios)
 /**
  * @brief send char to uart
  * @param c - char for sending to uart
- * @return none
  */
 static inline void send_char(char c)
 {
@@ -80,7 +82,6 @@ static inline void send_char(char c)
 /**
  * @brief send null-terminated string to uart
  * @param s[] - string for sending to uart
- * @return none
  */
 void send_string(const char s[]);
 
@@ -102,7 +103,6 @@ void send_named_bin(char name[], uint32_t data, uint8_t nibbles);
 /**
  * @brief delay to given time in ms
  * @param ms  time in milliseconds up to 65535
- * @return none
  */
 static inline void delay_ms(uint16_t ms)
 {
@@ -112,7 +112,6 @@ static inline void delay_ms(uint16_t ms)
 /**
  * @brief delay to given time in rtos ticks
  * @param ticks  time in ticks up to portMAX_DELAY
- * @return none
  */
 static inline void delay_ticks(TickType_t ticks)
 {
@@ -121,7 +120,6 @@ static inline void delay_ticks(TickType_t ticks)
 
 /**
  * @brief return true if uart has received char in register
- * @return bool char received state
  */
 void init_hw(void);
 
@@ -166,4 +164,5 @@ void init_gpio(void)
 
 #endif
 
+#endif // HW_MAIN_H_
 /** @}*/
