@@ -1,0 +1,3 @@
+[submodule "libs"]
+	path = libs
+	url = git@git.vlnet.ml:freehold/libs-and-tests.git
