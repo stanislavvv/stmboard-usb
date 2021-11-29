@@ -31,7 +31,6 @@ uint8_t usbd_control_buffer[128];
  */
 void usb_init(void)
 {
-    
     //AFIO_MAPR |= AFIO_MAPR_SWJ_CFG_JTAG_OFF_SW_ON;
 
     gpio_set_mode(LED_PORT, GPIO_MODE_INPUT, 0, LED_PIN);
